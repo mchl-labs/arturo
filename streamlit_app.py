@@ -109,8 +109,7 @@ st.markdown("### Suggested Questions")
 question = st.radio("Select a question to test:", questions)
 
 # Option for custom question
-st.markdown("### or enter your own question")
-custom_question = st.text_input("Your Question:")
+custom_question = st.text_input("Or enter your question:")
 
 # Final user message
 user_input = custom_question if custom_question else question
