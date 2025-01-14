@@ -7,7 +7,7 @@ client = OpenAI(
 )
 
 with open("data.txt", "r") as file:
-    markdownplan = file
+    markdownplan = file.read()
 
 
 # Predefined system prompts
@@ -66,13 +66,13 @@ questions = [
     "Posso bere tè o caffè durante il giorno?"
 ]
 
-def chatbot(prompt, username = "Marco", system = "Sei un nutrizionista esperto. Rispondi come tale. Devi rispondere alle domande in base al mio piano nutrizionale. Posso mangiare solo ingredienti presenti nel mio piano nutrizionale e nelle quantità indicate."):
+def chatbot(history, username = "Marco", system = "Sei un nutrizionista esperto. Rispondi come tale. Devi rispondere alle domande in base al mio piano nutrizionale. Posso mangiare solo ingredienti presenti nel mio piano nutrizionale e nelle quantità indicate."):
     try:
         response = client.chat.completions.create(
                 model="gpt-4o-mini",
                 messages=[
                     {"role": "system", "content": f"{system} Questo è il mio piano nutrizionale: {markdownplan}. Il mio nome è {username}"},
-                    {"role": "user", "content": prompt}
+                    *history
                 ],
                 max_tokens=1500,
                 temperature=0.1,
@@ -85,32 +85,45 @@ def chatbot(prompt, username = "Marco", system = "Sei un nutrizionista esperto. 
         return f"Error: {e}"
 
 # Streamlit UI
-st.title("Arturo nutritionist bot POC")
+st.title("Arturo Nutritionist Bot POC")
 
-# Select a system prompt
+# Sidebar: System Prompt Selection
 selected_prompt = st.sidebar.selectbox("Select a system prompt:", list(system_prompt_dict.keys()))
 
-# Display suggested questions
-st.markdown("### Suggested Questions")
-question = st.radio("Select a question to test:", questions)
+# Initialize conversation history in session state
+if "conversation_history" not in st.session_state:
+    st.session_state.conversation_history = []
 
-# Option for custom question
-st.markdown("### Or Enter Your Own Question")
-custom_question = st.text_input("Your Question:")
-
-# Final user message
-user_message = custom_question if custom_question else question
-
-# Generate response button
-if st.button("Generate Response"):
-    if user_message:
-        st.markdown("### Chatbot Response:")
-        with st.spinner("Generating response..."):
-            try:
-                response = chatbot(user_message, system=system_prompt_dict[selected_prompt])
-                st.success("Response:")
-                st.write(response)
-            except Exception as e:
-                st.error(f"Error generating response: {e}")
+# Display chat history
+st.markdown("### Chat History")
+for message in st.session_state.conversation_history:
+    if message["role"] == "user":
+        st.markdown(f"**You:** {message['content']}")
     else:
-        st.warning("Please select a question or enter your own question.")
+        st.markdown(f"**Chatbot:** {message['content']}")
+
+# User input
+user_input = st.text_input("Enter your question here:")
+
+# Handle user input and update conversation history
+if st.button("Send"):
+    if user_input:
+        # Add user message to history
+        st.session_state.conversation_history.append({"role": "user", "content": user_input})
+
+        # Generate chatbot response
+        with st.spinner("Generating response..."):
+            response = chatbot(st.session_state.conversation_history, system_prompt_dict[selected_prompt])
+
+        # Add chatbot response to history
+        st.session_state.conversation_history.append({"role": "assistant", "content": response})
+
+        # Refresh the chat display
+        st.experimental_rerun()
+    else:
+        st.warning("Please enter a question.")
+
+# Clear conversation
+if st.button("Clear Conversation"):
+    st.session_state.conversation_history = []
+    st.experimental_rerun()
