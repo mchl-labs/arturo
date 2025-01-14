@@ -1,0 +1,107 @@
+| category         | macro\_nutrient   | dose                        |   quantity | unit\_symbol   |
+|------------------|------------------|-----------------------------|------------|---------------|
+| colazione        | None             | Caffe'                      |         40 | g             |
+| colazione        | proteins         | Yogurt greco                |        150 | g             |
+| colazione        | None             | Kefir bianco da bere        |        200 | g             |
+| colazione        | carbohydrates    | Cornflakes                  |         30 | g             |
+| colazione        | carbohydrates    | Riso soffiato               |         30 | g             |
+| colazione        | carbohydrates    | Muesli                      |         30 | g             |
+| colazione        | carbohydrates    | Granola                     |         30 | g             |
+| colazione        | carbohydrates    | Weetabix                    |         30 | g             |
+| colazione        | None             | Frutta fresca di stagione   |        100 | g             |
+| colazione        | None             | Frutta secca oleosa         |         10 | g             |
+| colazione        | None             | Cioccolato fondente         |         10 | g             |
+| spuntino\_mattina | None             | Frutta fresca di stagione   |        150 | g             |
+| spuntino\_mattina | None             | Frutta secca oleosa         |         15 | g             |
+| spuntino\_mattina | None             | Cioccolato fondente         |         15 | g             |
+| pranzo           | carbohydrates    | Pasta                       |         80 | g             |
+| pranzo           | carbohydrates    | Riso                        |         80 | g             |
+| pranzo           | carbohydrates    | Cereali                     |         80 | g             |
+| pranzo           | None             | Pane comune                 |         80 | g             |
+| pranzo           | None             | Gallette                    |         60 | g             |
+| pranzo           | carbohydrates    | Crackers                    |         50 | g             |
+| pranzo           | carbohydrates    | Grissini                    |         50 | g             |
+| pranzo           | proteins         | Ricotta di vacca            |        150 | g             |
+| pranzo           | proteins         | Fiocchi di latte            |        200 | g             |
+| pranzo           | proteins         | Feta                        |        100 | g             |
+| pranzo           | proteins         | Primosale                   |        100 | g             |
+| pranzo           | proteins         | Crescenza                   |         80 | g             |
+| pranzo           | proteins         | Stracchino                  |         80 | g             |
+| pranzo           | proteins         | Robiola                     |         70 | g             |
+| pranzo           | proteins         | Formaggio spalmabile        |         70 | g             |
+| pranzo           | fibers           | Verdura cruda               |        200 | g             |
+| pranzo           | None             | Cotta                       |        200 | g             |
+| pranzo           | None             | Olio di oliva extra vergine |         10 | g             |
+| pranzo           | fats             | Pesto alla genovese         |         20 | g             |
+| pranzo           | proteins         | Lenticchie secche           |         40 | g             |
+| pranzo           | proteins         | Fagioli secchi              |         40 | g             |
+| pranzo           | proteins         | Ceci secchi                 |         40 | g             |
+| pranzo           | proteins         | Piselli surgelati           |        150 | g             |
+| pranzo           | proteins         | Fave secche                 |         40 | g             |
+| pranzo           | None             | Tonno sott'olio             |         80 | g             |
+| pranzo           | None             | Sgombro filetti sott'olio   |         80 | g             |
+| pranzo           | None             | Gamberetti sgusciati        |        160 | g             |
+| pranzo           | fibers           | Minestrone                  |        200 | g             |
+| pranzo           | None             | Passato di verdure          |        200 | g             |
+| pranzo           | proteins         | Parmigiano grattugiato      |         20 | g             |
+| pranzo           | proteins         | Gamberi                     |        160 | g             |
+| pranzo           | None             | Vongola                     |        160 | g             |
+| pranzo           | None             | Cozza                       |        160 | g             |
+| pranzo           | None             | Mitilo                      |        160 | g             |
+| pranzo           | None             | Seppia                      |        160 | g             |
+| pranzo           | proteins         | Polpo                       |        160 | g             |
+| pranzo           | None             | Calamaro                    |        160 | g             |
+| pranzo           | None             | Totano                      |        160 | g             |
+| pranzo           | None             | Merluzzo                    |        160 | g             |
+| pranzo           | proteins         | Nasello                     |        160 | g             |
+| pranzo           | None             | Uova di gallina             |        180 | g             |
+| pranzo           | None             | Gnocchi di patata           |        230 | g             |
+| pranzo           | fibers           | Pomodoro                    |        200 | g             |
+| spuntino\_sera    | proteins         | Yogurt greco                |        150 | g             |
+| spuntino\_sera    | carbohydrates    | Cornflakes                  |         20 | g             |
+| spuntino\_sera    | carbohydrates    | Riso soffiato               |         20 | g             |
+| spuntino\_sera    | carbohydrates    | Muesli                      |         20 | g             |
+| spuntino\_sera    | carbohydrates    | Granola                     |         20 | g             |
+| spuntino\_sera    | carbohydrates    | Weetabix                    |         20 | g             |
+| spuntino\_sera    | None             | Frutta fresca di stagione   |        150 | g             |
+| spuntino\_sera    | proteins         | Yogurt  intero bianco       |        125 | g             |
+| cena             | None             | Pane comune                 |         70 | g             |
+| cena             | None             | Patate                      |        250 | g             |
+| cena             | carbohydrates    | Crackers                    |         40 | g             |
+| cena             | carbohydrates    | Grissini                    |         40 | g             |
+| cena             | proteins         | Salmone                     |        150 | g             |
+| cena             | proteins         | Tonno                       |        180 | g             |
+| cena             | None             | Merluzzo                    |        250 | g             |
+| cena             | proteins         | Nasello                     |        250 | g             |
+| cena             | proteins         | Orata                       |        200 | g             |
+| cena             | proteins         | Spigola                     |        200 | g             |
+| cena             | proteins         | Branzino                    |        200 | g             |
+| cena             | proteins         | Sogliola                    |        200 | g             |
+| cena             | proteins         | Platessa                    |        200 | g             |
+| cena             | proteins         | Pesce spada                 |        200 | g             |
+| cena             | proteins         | Rombo                       |        200 | g             |
+| cena             | proteins         | Rana pescatrice             |        200 | g             |
+| cena             | None             | Pesce persico               |        200 | g             |
+| cena             | proteins         | Polpo                       |        200 | g             |
+| cena             | None             | Seppia                      |        200 | g             |
+| cena             | None             | Calamaro                    |        200 | g             |
+| cena             | None             | Totano                      |        200 | g             |
+| cena             | fibers           | Verdura cruda               |        200 | g             |
+| cena             | None             | Cotta                       |        200 | g             |
+| cena             | None             | Olio di oliva extra vergine |         10 | g             |
+| cena             | proteins         | Petto di pollo              |        200 | g             |
+| cena             | None             | Pollo coscia                |        180 | g             |
+| cena             | None             | Hamburger di tacchino       |        180 | g             |
+| cena             | proteins         | Pollo                       |        180 | g             |
+| cena             | None             | Tacchino petto              |        180 | g             |
+| cena             | None             | Uova di gallina             |        180 | g             |
+| cena             | None             | Pasto libero                |        350 | g             |
+| cena             | proteins         | Manzo                       |        200 | g             |
+| cena             | None             | Vitello tagli magri         |        200 | g             |
+| cena             | proteins         | Roastbeef                   |        200 | g             |
+| cena             | None             | Carpaccio di manzo          |        200 | g             |
+| cena             | None             | Hamburger di manzo          |        180 | g             |
+| cena             | proteins         | Vitello                     |        180 | g             |
+| cena             | proteins         | Maiale                      |        180 | g             |
+| cena             | proteins         | Hummus                      |        160 | g             |
+| cena             | proteins         | Burger vegetale             |        120 | g             |
