@@ -100,10 +100,18 @@ for message in st.session_state.conversation_history:
     if message["role"] == "user":
         st.markdown(f"**You:** {message['content']}")
     else:
-        st.markdown(f"**Chatbot:** {message['content']}")
+        st.markdown(f"**Arturo:** {message['content']}")
 
-# User input
-user_input = st.text_input("Enter your question here:")
+# Display suggested questions
+st.markdown("### Suggested Questions")
+question = st.radio("Select a question to test:", questions)
+
+# Option for custom question
+st.markdown("### Or Enter Your Own Question")
+custom_question = st.text_input("Your Question:")
+
+# Final user message
+user_input = custom_question if custom_question else question
 
 # Handle user input and update conversation history
 if st.button("Send"):
@@ -119,11 +127,11 @@ if st.button("Send"):
         st.session_state.conversation_history.append({"role": "assistant", "content": response})
 
         # Refresh the chat display
-        st.experimental_rerun()
+        st.rerun()
     else:
         st.warning("Please enter a question.")
 
 # Clear conversation
 if st.button("Clear Conversation"):
     st.session_state.conversation_history = []
-    st.experimental_rerun()
+    st.rerun()
