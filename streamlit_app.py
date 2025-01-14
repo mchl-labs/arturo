@@ -85,7 +85,7 @@ def chatbot(history, username = "Marco", system = "Sei un nutrizionista esperto.
         return f"Error: {e}"
 
 # Streamlit UI
-st.title("Arturo nutritionist BOT 🎈")
+st.title("Arturo Nutritionist BOT 🎈")
 
 # Sidebar: System Prompt Selection
 selected_prompt = st.sidebar.selectbox("Select a system prompt:", list(system_prompt_dict.keys()))
