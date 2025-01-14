@@ -90,6 +90,8 @@ st.title("Arturo Nutritionist Bot POC")
 # Sidebar: System Prompt Selection
 selected_prompt = st.sidebar.selectbox("Select a system prompt:", list(system_prompt_dict.keys()))
 
+username = st.sidebar.text_input("Enter your name:", value="Marco")
+
 # Initialize conversation history in session state
 if "conversation_history" not in st.session_state:
     st.session_state.conversation_history = []
@@ -121,7 +123,7 @@ if st.button("Send"):
 
         # Generate chatbot response
         with st.spinner("Generating response..."):
-            response = chatbot(st.session_state.conversation_history, system_prompt_dict[selected_prompt])
+            response = chatbot(st.session_state.conversation_history, username=username, system=system_prompt_dict[selected_prompt])
 
         # Add chatbot response to history
         st.session_state.conversation_history.append({"role": "assistant", "content": response})
