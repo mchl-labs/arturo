@@ -100,9 +100,9 @@ if "conversation_history" not in st.session_state:
 st.markdown("### Chat History")
 for message in st.session_state.conversation_history:
     if message["role"] == "user":
-        st.markdown(f"**You:** {message['content']}")
+        st.markdown(f"""<div style="background-color: #e0f7fa; padding: 10px; border-radius: 10px; margin: 5px 0; color: #00796b;"><strong>{username}:</strong> {message['content']}</div>""", unsafe_allow_html=True)
     else:
-        st.markdown(f"**Arturo:** {message['content']}")
+        st.markdown(f"""<div style="background-color: #f1f8e9; padding: 10px; border-radius: 10px; margin: 5px 0; color: #33691e;"><strong>Chatbot:</strong> {message['content']}</div>""", unsafe_allow_html=True)
 
 # Display suggested questions
 st.markdown("### Suggested Questions")
