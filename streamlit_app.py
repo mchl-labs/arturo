@@ -132,30 +132,35 @@ custom_question = st.text_input("O inserisci la tua domanda:", value=st.session_
 # Final user message
 user_input = custom_question if custom_question else question
 
-# Handle user input and update conversation history
-if st.button("Send"):
-    if username != paziente:
-        username = paziente
-        with open(pazienti_dict[paziente], "r") as file:
-            markdownplan = file.read()
-    if user_input:
-        # Add user message to history
-        st.session_state.conversation_history.append({"role": "user", "content": user_input})
+col1, col2 = st.columns(2)
 
-        # Generate chatbot response
-        with st.spinner("Generating response..."):
-            response = chatbot(st.session_state.conversation_history, username=username, system=system_prompt_dict["Prompt 3"])
+# Add buttons to each column
+with col1:
+    # Handle user input and update conversation history
+    if st.button("Send"):
+        if username != paziente:
+            username = paziente
+            with open(pazienti_dict[paziente], "r") as file:
+                markdownplan = file.read()
+        if user_input:
+            # Add user message to history
+            st.session_state.conversation_history.append({"role": "user", "content": user_input})
+    
+            # Generate chatbot response
+            with st.spinner("Generating response..."):
+                response = chatbot(st.session_state.conversation_history, username=username, system=system_prompt_dict["Prompt 3"])
+    
+            # Add chatbot response to history
+            st.session_state.conversation_history.append({"role": "assistant", "content": response})
+            clear_text()
+    
+            # Refresh the chat display
+            st.rerun()
+        else:
+            st.warning("Please enter a question.")
 
-        # Add chatbot response to history
-        st.session_state.conversation_history.append({"role": "assistant", "content": response})
-        clear_text()
-
-        # Refresh the chat display
+with col2:
+    # Clear conversation
+    if st.button("Clear Conversation"):
+        st.session_state.conversation_history = []
         st.rerun()
-    else:
-        st.warning("Please enter a question.")
-
-# Clear conversation
-if st.button("Clear Conversation"):
-    st.session_state.conversation_history = []
-    st.rerun()
