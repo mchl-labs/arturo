@@ -79,13 +79,6 @@ questions = [
     "Posso bere tè o caffè durante il giorno?"
 ]
 
-if "text_input" not in st.session_state:
-    st.session_state.text_input = ""
-
-# Function to clear the text input
-def clear_text():
-    st.session_state.text_input = ""
-
 def chatbot(history, username = "Marco", system = "Sei un nutrizionista esperto. Rispondi come tale. Devi rispondere alle domande in base al mio piano nutrizionale. Posso mangiare solo ingredienti presenti nel mio piano nutrizionale e nelle quantità indicate."):
     try:
         response = client.chat.completions.create(
@@ -126,8 +119,12 @@ for message in st.session_state.conversation_history:
 st.markdown("### Domande suggerite")
 question = st.radio("Seleziona una domanda:", questions)
 
-# Option for custom question
-custom_question = st.text_input("O inserisci la tua domanda:", value=st.session_state.text_input)
+with st.form("my_form", clear_on_submit=True):
+    # Text input field
+    user_input = st.text_input("O inserisci la tua domanda:", key="text_input")
+    
+    # Submit button
+    submitted = st.form_submit_button("Send")
 
 # Final user message
 user_input = custom_question if custom_question else question
@@ -137,7 +134,7 @@ col1, col2, spacer = st.columns([2, 3, 6])
 # Add buttons to each column
 with col1:
     # Handle user input and update conversation history
-    if st.button("Send"):
+    if st.button("Send") || submitted:
         if username != paziente:
             username = paziente
             with open(pazienti_dict[paziente], "r") as file:
@@ -152,7 +149,7 @@ with col1:
     
             # Add chatbot response to history
             st.session_state.conversation_history.append({"role": "assistant", "content": response})
-            clear_text()
+            st.session_state.text_input = "" 
     
             # Refresh the chat display
             st.rerun()
