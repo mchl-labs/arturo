@@ -6,7 +6,7 @@ client = OpenAI(
     api_key=st.secrets["OAI"],  # This is the default and can be omitted
 )
 
-last_p = ""
+username = ""
 markdownplan = ""
 
 
@@ -126,8 +126,8 @@ user_input = custom_question if custom_question else question
 
 # Handle user input and update conversation history
 if st.button("Send"):
-    if last_p != paziente:
-        last_p = paziente
+    if username != paziente:
+        username = paziente
         with open(pazienti_dict[paziente], "r") as file:
             markdownplan = file.read()
     if user_input:
