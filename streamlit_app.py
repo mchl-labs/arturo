@@ -132,7 +132,7 @@ custom_question = st.text_input("O inserisci la tua domanda:", value=st.session_
 # Final user message
 user_input = custom_question if custom_question else question
 
-col1, col2, spacer = st.columns([1, 3, 7])
+col1, col2, spacer = st.columns([2, 2, 7])
 
 # Add buttons to each column
 with col1:
