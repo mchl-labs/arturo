@@ -121,7 +121,7 @@ question = st.radio("Seleziona una domanda:", questions)
 
 with st.form("my_form", clear_on_submit=True):
     # Text input field
-    user_input = st.text_input("O inserisci la tua domanda:", key="text_input")
+    custom_question = st.text_input("O inserisci la tua domanda:", key="text_input")
     
     # Submit button
     submitted = st.form_submit_button("Send")
