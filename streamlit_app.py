@@ -6,45 +6,57 @@ client = OpenAI(
     api_key=st.secrets["OAI"],  # This is the default and can be omitted
 )
 
-with open("data.txt", "r") as file:
-    markdownplan = file.read()
+last_p = ""
+markdownplan = ""
 
 
 # Predefined system prompts
 system_prompts = [
-  {
-    "name": "Prompt 1",
-    "content": "Sei un nutrizionista esperto. Rispondi come tale. Devi rispondere alle domande in base al mio piano nutrizionale. Posso mangiare solo ingredienti presenti nel mio piano nutrizionale e nelle quantità indicate."
-  },
-  {
-    "name": "Prompt 2",
-    "content": """Sei un chatbot nutrizionista virtuale altamente qualificato, progettato per rispondere a domande sui piani alimentari personalizzati dei pazienti. Devi fornire risposte accurate, comprensibili e amichevoli basandoti sul piano alimentare specifico del paziente. Segui queste linee guida:
+    {
+        "name": "Prompt 1",
+        "content": "Sei un nutrizionista esperto. Rispondi come tale. Devi rispondere alle domande in base al mio piano nutrizionale. Posso mangiare solo ingredienti presenti nel mio piano nutrizionale e nelle quantità indicate."
+    },
+    {
+        "name": "Prompt 2",
+        "content": """Sei un chatbot nutrizionista virtuale altamente qualificato, progettato per rispondere a domande sui piani alimentari personalizzati dei pazienti. Devi fornire risposte accurate, comprensibili e amichevoli basandoti sul piano alimentare specifico del paziente. Segui queste linee guida:
+    
+    Personalizzazione: Rispondi sempre in modo personalizzato in base alle informazioni fornite sul piano alimentare del paziente.
+    Educazione: Se possibile, includi spiegazioni semplici per aiutare il paziente a comprendere il motivo delle raccomandazioni.
+    Empatia: Mostrati sempre gentile, incoraggiante e disponibile.
+    Limiti: Se una domanda esula dalle tue competenze o richiede l’intervento di un professionista, invita il paziente a consultare il suo nutrizionista o medico di riferimento.
+    Esempio di approccio:
+    
+    Domanda del paziente: "Posso aggiungere zucchero al caffè?"
+    Risposta: \"Secondo il tuo piano alimentare, è meglio evitare lo zucchero aggiunto per gestire al meglio i tuoi livelli di glicemia. Potresti provare una piccola quantità di dolcificante naturale, ma sentiti libero di consultare il tuo nutrizionista per maggiori dettagli.\""""
+    },
+    {
+        "name": "Prompt 3",
+        "content": """Sei un nutrizionista esperto altamente qualificato. Rispondi come tale. Rispondi alle domande basandoti sui piani alimentari personalizzati dei pazienti. Devi fornire risposte accurate, comprensibili e amichevoli basandoti sul piano alimentare specifico del paziente. Segui queste linee guida:
+    
+    Personalizzazione: Rispondi sempre in modo personalizzato in base alle informazioni fornite sul piano alimentare del paziente.
+    Educazione: Se possibile, includi spiegazioni semplici per aiutare il paziente a comprendere il motivo delle raccomandazioni.
+    Empatia: Mostrati sempre gentile, incoraggiante e disponibile.
+    Limiti: Se una domanda esula dalle tue competenze o richiede l’intervento di un professionista, invita il paziente a consultare il suo nutrizionista o medico di riferimento.
+    Esempio di approccio:
+    
+    Domanda del paziente: "Posso aggiungere zucchero al caffè?"
+    Risposta: \"Secondo il tuo piano alimentare, è meglio evitare lo zucchero aggiunto per gestire al meglio i tuoi livelli di glicemia. Potresti provare una piccola quantità di dolcificante naturale, ma sentiti libero di consultare il tuo nutrizionista per maggiori dettagli.\""""
+    }
+]
 
-Personalizzazione: Rispondi sempre in modo personalizzato in base alle informazioni fornite sul piano alimentare del paziente.
-Educazione: Se possibile, includi spiegazioni semplici per aiutare il paziente a comprendere il motivo delle raccomandazioni.
-Empatia: Mostrati sempre gentile, incoraggiante e disponibile.
-Limiti: Se una domanda esula dalle tue competenze o richiede l’intervento di un professionista, invita il paziente a consultare il suo nutrizionista o medico di riferimento.
-Esempio di approccio:
-
-Domanda del paziente: "Posso aggiungere zucchero al caffè?"
-Risposta: \"Secondo il tuo piano alimentare, è meglio evitare lo zucchero aggiunto per gestire al meglio i tuoi livelli di glicemia. Potresti provare una piccola quantità di dolcificante naturale, ma sentiti libero di consultare il tuo nutrizionista per maggiori dettagli.\""""
-  },
-  {
-    "name": "Prompt 3",
-    "content": """Sei un nutrizionista esperto altamente qualificato. Rispondi come tale. Rispondi alle domande basandoti sui piani alimentari personalizzati dei pazienti. Devi fornire risposte accurate, comprensibili e amichevoli basandoti sul piano alimentare specifico del paziente. Segui queste linee guida:
-
-Personalizzazione: Rispondi sempre in modo personalizzato in base alle informazioni fornite sul piano alimentare del paziente.
-Educazione: Se possibile, includi spiegazioni semplici per aiutare il paziente a comprendere il motivo delle raccomandazioni.
-Empatia: Mostrati sempre gentile, incoraggiante e disponibile.
-Limiti: Se una domanda esula dalle tue competenze o richiede l’intervento di un professionista, invita il paziente a consultare il suo nutrizionista o medico di riferimento.
-Esempio di approccio:
-
-Domanda del paziente: "Posso aggiungere zucchero al caffè?"
-Risposta: \"Secondo il tuo piano alimentare, è meglio evitare lo zucchero aggiunto per gestire al meglio i tuoi livelli di glicemia. Potresti provare una piccola quantità di dolcificante naturale, ma sentiti libero di consultare il tuo nutrizionista per maggiori dettagli.\""""
-  }
+pazienti = [
+    {
+        "name": "P. Capuano",
+        "path": "data.txt"
+    },
+    {
+        "name": "Test 2",
+        "path": "data.txt"
+    }
 ]
 
 system_prompt_dict = {item["name"]: item["content"] for item in system_prompts}
+pazienti_dict = {item["name"]: item["content"] for item in pazienti}
 
 questions = [
     "Posso sostituire un alimento del piano con un altro?",
@@ -88,9 +100,7 @@ def chatbot(history, username = "Marco", system = "Sei un nutrizionista esperto.
 st.title("Arturo Nutritionist BOT 🎈")
 
 # Sidebar: System Prompt Selection
-selected_prompt = st.sidebar.selectbox("Select a system prompt:", list(system_prompt_dict.keys()))
-
-username = st.sidebar.text_input("Enter your name:", value="Marco")
+paziente = st.sidebar.selectbox("Seleziona un paziente:", list(pazienti_dict.keys()))
 
 # Initialize conversation history in session state
 if "conversation_history" not in st.session_state:
@@ -116,13 +126,17 @@ user_input = custom_question if custom_question else question
 
 # Handle user input and update conversation history
 if st.button("Send"):
+    if last_p != paziente:
+        last_p = paziente
+        with open(pazienti_dict[paziente], "r") as file:
+            markdownplan = file.read()
     if user_input:
         # Add user message to history
         st.session_state.conversation_history.append({"role": "user", "content": user_input})
 
         # Generate chatbot response
         with st.spinner("Generating response..."):
-            response = chatbot(st.session_state.conversation_history, username=username, system=system_prompt_dict[selected_prompt])
+            response = chatbot(st.session_state.conversation_history, username=username, system=system_prompt_dict["Prompt 3"])
 
         # Add chatbot response to history
         st.session_state.conversation_history.append({"role": "assistant", "content": response})
