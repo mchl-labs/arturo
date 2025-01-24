@@ -98,7 +98,7 @@ def chatbot(history, username = "Marco", system = "Sei un nutrizionista esperto.
         return f"Error: {e}"
 
 # Streamlit UI
-st.title("Arturo Nutritionist BOT 🎈")
+st.title("Arturo BOT 🎈")
 
 # Sidebar: System Prompt Selection
 paziente = st.sidebar.selectbox("Seleziona un paziente:", list(pazienti_dict.keys()))
@@ -116,11 +116,11 @@ for message in st.session_state.conversation_history:
         st.markdown(f"""<div style="background-color: #f1f8e9; padding: 10px; border-radius: 10px; margin: 5px 0; color: #33691e;"><strong>Chatbot:</strong> {message['content']}</div>""", unsafe_allow_html=True)
 
 # Display suggested questions
-st.markdown("### Suggested Questions")
-question = st.radio("Select a question to test:", questions)
+st.markdown("### Domande suggerite")
+question = st.radio("Seleziona una domanda:", questions)
 
 # Option for custom question
-custom_question = st.text_input("Or enter your question:")
+custom_question = st.text_input("O inserisci la tua domanda:")
 
 # Final user message
 user_input = custom_question if custom_question else question
@@ -141,6 +141,7 @@ if st.button("Send"):
 
         # Add chatbot response to history
         st.session_state.conversation_history.append({"role": "assistant", "content": response})
+        custom_question = ""
 
         # Refresh the chat display
         st.rerun()
