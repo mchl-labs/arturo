@@ -122,12 +122,12 @@ for message in st.session_state.conversation_history:
     else:
         st.markdown(f"""<div style="background-color: #f1f8e9; padding: 10px; border-radius: 10px; margin: 5px 0; color: #33691e;"><strong>Chatbot:</strong> {message['content']}</div>""", unsafe_allow_html=True)
 
+# Option for custom question
+custom_question = st.text_input("Inserisci la tua domanda:", value=st.session_state.text_input)
+
 # Display suggested questions
 st.markdown("### Domande suggerite")
-question = st.radio("Seleziona una domanda:", questions)
-
-# Option for custom question
-custom_question = st.text_input("O inserisci la tua domanda:", value=st.session_state.text_input)
+question = st.radio("O seleziona una domanda:", questions)
 
 # Final user message
 user_input = custom_question if custom_question else question
