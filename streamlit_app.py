@@ -56,7 +56,7 @@ pazienti = [
 ]
 
 system_prompt_dict = {item["name"]: item["content"] for item in system_prompts}
-pazienti_dict = {item["name"]: item["content"] for item in pazienti}
+pazienti_dict = {item["name"]: item["path"] for item in pazienti}
 
 questions = [
     "Posso sostituire un alimento del piano con un altro?",
