@@ -134,7 +134,7 @@ col1, col2, spacer = st.columns([2, 3, 6])
 # Add buttons to each column
 with col1:
     # Handle user input and update conversation history
-    if st.button("Send") || submitted:
+    if st.button("Send") or submitted:
         if username != paziente:
             username = paziente
             with open(pazienti_dict[paziente], "r") as file:
