@@ -79,6 +79,9 @@ questions = [
     "Posso bere tè o caffè durante il giorno?"
 ]
 
+if "text_input" not in st.session_state:
+    st.session_state.text_input = ""
+
 def chatbot(history, username = "Marco", system = "Sei un nutrizionista esperto. Rispondi come tale. Devi rispondere alle domande in base al mio piano nutrizionale. Posso mangiare solo ingredienti presenti nel mio piano nutrizionale e nelle quantità indicate."):
     try:
         response = client.chat.completions.create(
