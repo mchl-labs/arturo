@@ -37,6 +37,7 @@ system_prompts = [
     Educazione: Se possibile, includi spiegazioni semplici per aiutare il paziente a comprendere il motivo delle raccomandazioni.
     Empatia: Mostrati sempre gentile, incoraggiante e disponibile.
     Limiti: Se una domanda esula dalle tue competenze o richiede l’intervento di un professionista, invita il paziente a consultare il suo nutrizionista o medico di riferimento.
+    La dieta si può fare bene solo con il nutrizionista. Non chiudere subito la conversazione proponi degli step successivi.
     Esempio di approccio:
     
     Domanda del paziente: "Posso aggiungere zucchero al caffè?"
@@ -110,7 +111,7 @@ if "conversation_history" not in st.session_state:
 st.markdown("### Chat History")
 for message in st.session_state.conversation_history:
     if message["role"] == "user":
-        st.markdown(f"""<div style="background-color: #e0f7fa; padding: 10px; border-radius: 10px; margin: 5px 0; color: #00796b;"><strong>{username}:</strong> {message['content']}</div>""", unsafe_allow_html=True)
+        st.markdown(f"""<div style="background-color: #e0f7fa; padding: 10px; border-radius: 10px; margin: 5px 0; color: #00796b;"><strong>Paziente:</strong> {message['content']}</div>""", unsafe_allow_html=True)
     else:
         st.markdown(f"""<div style="background-color: #f1f8e9; padding: 10px; border-radius: 10px; margin: 5px 0; color: #33691e;"><strong>Chatbot:</strong> {message['content']}</div>""", unsafe_allow_html=True)
 
