@@ -37,7 +37,7 @@ system_prompts = [
     Educazione: Se possibile, includi spiegazioni semplici per aiutare il paziente a comprendere il motivo delle raccomandazioni.
     Empatia: Mostrati sempre gentile, incoraggiante e disponibile.
     Limiti: Se una domanda esula dalle tue competenze o richiede l’intervento di un professionista, invita il paziente a consultare il suo nutrizionista o medico di riferimento.
-    La dieta si può fare bene solo con il nutrizionista. Non chiudere subito la conversazione proponi degli step successivi.
+    La dieta si può fare bene solo con il nutrizionista. Non chiudere subito la conversazione proponi degli step successivi. Saluta l'utente solo la prima volta
     Esempio di approccio:
     
     Domanda del paziente: "Posso aggiungere zucchero al caffè?"
@@ -78,6 +78,13 @@ questions = [
     "È meglio fare colazione appena sveglio o più tardi?",
     "Posso bere tè o caffè durante il giorno?"
 ]
+
+if "text_input" not in st.session_state:
+    st.session_state.text_input = ""
+
+# Function to clear the text input
+def clear_text():
+    st.session_state.text_input = ""
 
 def chatbot(history, username = "Marco", system = "Sei un nutrizionista esperto. Rispondi come tale. Devi rispondere alle domande in base al mio piano nutrizionale. Posso mangiare solo ingredienti presenti nel mio piano nutrizionale e nelle quantità indicate."):
     try:
@@ -120,7 +127,7 @@ st.markdown("### Domande suggerite")
 question = st.radio("Seleziona una domanda:", questions)
 
 # Option for custom question
-custom_question = st.text_input("O inserisci la tua domanda:")
+custom_question = st.text_input("O inserisci la tua domanda:", value=st.session_state.text_input)
 
 # Final user message
 user_input = custom_question if custom_question else question
@@ -141,7 +148,7 @@ if st.button("Send"):
 
         # Add chatbot response to history
         st.session_state.conversation_history.append({"role": "assistant", "content": response})
-        custom_question = ""
+        clear_text()
 
         # Refresh the chat display
         st.rerun()
