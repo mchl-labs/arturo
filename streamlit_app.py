@@ -49,23 +49,23 @@ system_prompts = [
 pazienti = [
     {
         "name": "P. Capuano",
-        "path": "data.txt"
+        "path": "data/data.txt"
     },
     {
         "name": "C. Romanelli",
-        "path": "costanzaromanelli.txt"
+        "path": "data/costanzaromanelli.txt"
     },
     {
         "name": "R. Pengo",
-        "path": "rebeccapengo.txt"
+        "path": "data/rebeccapengo.txt"
     },
     {
         "name": "C. Benzoni",
-        "path": "chiarabenzoni.txt"
+        "path": "data/chiarabenzoni.txt"
     },
     {
         "name": "L. Trivisonno",
-        "path": "letiziatrivisonno.txt"
+        "path": "d/letiziatrivisonno.txt"
     }
 ]
 
