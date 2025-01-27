@@ -52,8 +52,20 @@ pazienti = [
         "path": "data.txt"
     },
     {
-        "name": "Test 2",
-        "path": "data.txt"
+        "name": "C. Romanelli",
+        "path": "costanzaromanelli.txt"
+    },
+    {
+        "name": "R. Pengo",
+        "path": "rebeccapengo.txt"
+    },
+    {
+        "name": "C. Benzoni",
+        "path": "chiarabenzoni.txt"
+    },
+    {
+        "name": "L. Trivisonno",
+        "path": "letiziatrivisonno.txt"
     }
 ]
 
