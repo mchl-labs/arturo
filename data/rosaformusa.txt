@@ -1,0 +1,165 @@
+| category         | macro\_nutrient   | dose                          |   quantity | unit\_symbol   |
+|------------------|------------------|-------------------------------|------------|---------------|
+| colazione        | proteins         | Latte parz.scremato           |        250 | g             |
+| colazione        | proteins         | Uova                          |          2 | None          |
+| colazione        | proteins         | Albume                        |         60 | g             |
+| colazione        | carbohydrates    | Muesli                        |         40 | g             |
+| colazione        | carbohydrates    | Pane integrale                |         50 | g             |
+| colazione        | proteins         | Fesa di tacchino              |         30 | g             |
+| colazione        | proteins         | Prosciutto cotto              |         30 | g             |
+| colazione        | carbohydrates    | Fette biscottate integrali    |          4 | None          |
+| colazione        | topping          | Miele                         |         20 | g             |
+| colazione        | topping          | Marmellata classica           |         20 | g             |
+| colazione        | topping          | Crema di cacao e nocciole     |         20 | g             |
+| colazione        | carbohydrates    | Taralli                       |         40 | g             |
+| colazione        | proteins         | Parmigiano                    |         20 | g             |
+| spuntino\_mattina | topping          | Frutta secca                  |         30 | g             |
+| spuntino\_mattina | carbohydrates    | Taralli                       |         40 | g             |
+| spuntino\_mattina | proteins         | Parmigiano                    |         20 | g             |
+| pranzo           | carbohydrates    | Pasta                         |         80 | g             |
+| pranzo           | carbohydrates    | Pasta integrale               |         80 | g             |
+| pranzo           | carbohydrates    | Farro                         |         80 | g             |
+| pranzo           | carbohydrates    | Quinoa                        |         80 | g             |
+| pranzo           | carbohydrates    | Grano saraceno                |         80 | g             |
+| pranzo           | carbohydrates    | Amaranto                      |         80 | g             |
+| pranzo           | carbohydrates    | Couscous                      |         80 | g             |
+| pranzo           | carbohydrates    | Orzo                          |         80 | g             |
+| pranzo           | carbohydrates    | Riso                          |         80 | g             |
+| pranzo           | carbohydrates    | Riso basmati                  |         80 | g             |
+| pranzo           | carbohydrates    | Riso integrale                |         80 | g             |
+| pranzo           | carbohydrates    | Riso venere                   |         80 | g             |
+| pranzo           | carbohydrates    | Pane integrale                |         50 | g             |
+| pranzo           | carbohydrates    | Pane                          |         50 | g             |
+| pranzo           | carbohydrates    | Piadina                       |         50 | g             |
+| pranzo           | carbohydrates    | Piadina integrale             |         50 | g             |
+| pranzo           | proteins         | Stracchino                    |         80 | g             |
+| pranzo           | proteins         | Ricotta                       |         80 | g             |
+| pranzo           | proteins         | Robiola                       |         80 | g             |
+| pranzo           | proteins         | Lenticchie                    |        150 | g             |
+| pranzo           | proteins         | Fave                          |        150 | g             |
+| pranzo           | proteins         | Fagioli                       |        150 | g             |
+| pranzo           | proteins         | Ceci                          |        150 | g             |
+| pranzo           | proteins         | Piselli                       |        150 | g             |
+| pranzo           | proteins         | Tonno al naturale             |         80 | g             |
+| pranzo           | proteins         | Tonno                         |        150 | g             |
+| pranzo           | proteins         | Pesce spada                   |        150 | g             |
+| pranzo           | proteins         | Salmone                       |        150 | g             |
+| pranzo           | proteins         | Sgombro                       |        150 | g             |
+| pranzo           | proteins         | Alici                         |        150 | g             |
+| pranzo           | proteins         | Vongole                       |        150 | g             |
+| pranzo           | proteins         | Merluzzo                      |        150 | g             |
+| pranzo           | proteins         | Cernia                        |        150 | g             |
+| pranzo           | proteins         | Persico                       |        150 | g             |
+| pranzo           | proteins         | Nasello                       |        150 | g             |
+| pranzo           | proteins         | Orata                         |        150 | g             |
+| pranzo           | proteins         | Rombo                         |        150 | g             |
+| pranzo           | proteins         | Sogliola                      |        150 | g             |
+| pranzo           | proteins         | Spigola                       |        150 | g             |
+| pranzo           | proteins         | Seppie                        |        150 | g             |
+| pranzo           | proteins         | Gamberi                       |        150 | g             |
+| pranzo           | proteins         | Gamberetti                    |        150 | g             |
+| pranzo           | proteins         | Calamari                      |        150 | g             |
+| pranzo           | proteins         | Polpo                         |        150 | g             |
+| pranzo           | proteins         | Pollo                         |        150 | g             |
+| pranzo           | proteins         | Hamburger di pollo o tacchino |        150 | g             |
+| pranzo           | proteins         | Petto di pollo                |        150 | g             |
+| pranzo           | proteins         | Tacchino                      |        150 | g             |
+| pranzo           | proteins         | Coniglio                      |        150 | g             |
+| pranzo           | proteins         | Maiale                        |        100 | g             |
+| pranzo           | proteins         | Ragù                          |        100 | g             |
+| pranzo           | proteins         | Manzo                         |        100 | g             |
+| pranzo           | proteins         | Vitello                       |        100 | g             |
+| pranzo           | proteins         | Hamburger di manzo o vitello  |        100 | g             |
+| pranzo           | fibers           | Pomodori                      |        200 | g             |
+| pranzo           | fibers           | Finocchi                      |        200 | g             |
+| pranzo           | fibers           | Pomodorini                    |        200 | g             |
+| pranzo           | fibers           | Zucchine                      |        200 | g             |
+| pranzo           | fibers           | Broccoli                      |        200 | g             |
+| pranzo           | fibers           | Rape                          |        200 | g             |
+| pranzo           | fibers           | Cicoria                       |        200 | g             |
+| pranzo           | fibers           | Cavolo nero                   |        200 | g             |
+| pranzo           | fibers           | Cavolfiore                    |        200 | g             |
+| pranzo           | fibers           | Peperoni                      |        200 | g             |
+| pranzo           | fibers           | Melanzane                     |        200 | g             |
+| pranzo           | fibers           | Carote                        |        200 | g             |
+| pranzo           | fibers           | Asparagi                      |        200 | g             |
+| pranzo           | fibers           | Carciofi                      |        200 | g             |
+| pranzo           | fibers           | Zucca                         |        200 | g             |
+| pranzo           | fibers           | Spinaci                       |        200 | g             |
+| pranzo           | fibers           | Verza                         |        200 | g             |
+| pranzo           | fibers           | Fagiolini                     |        200 | g             |
+| pranzo           | fibers           | Radicchio                     |        200 | g             |
+| pranzo           | fibers           | Ravanelli                     |        200 | g             |
+| pranzo           | fibers           | Indivia                       |        200 | g             |
+| pranzo           | fibers           | Cime di rapa                  |        200 | g             |
+| pranzo           | fibers           | Cetrioli                      |        200 | g             |
+| pranzo           | fibers           | Funghi                        |        150 | g             |
+| pranzo           | fats             | Olio extra vergine di oliva   |         10 | g             |
+| spuntino\_sera    | fruits           | Frutta fresca                 |        150 | g             |
+| spuntino\_sera    | proteins         | Yogurt greco 0%               |        150 | g             |
+| spuntino\_sera    | topping          | Cioccolato fondente           |         15 | g             |
+| cena             | carbohydrates    | Pane integrale                |        100 | g             |
+| cena             | carbohydrates    | Pane                          |        100 | g             |
+| cena             | carbohydrates    | Patate                        |        300 | g             |
+| cena             | carbohydrates    | Piadina                       |        100 | g             |
+| cena             | carbohydrates    | Piadina integrale             |        100 | g             |
+| cena             | proteins         | Lenticchie                    |        150 | g             |
+| cena             | proteins         | Fave                          |        150 | g             |
+| cena             | proteins         | Fagioli                       |        150 | g             |
+| cena             | proteins         | Ceci                          |        150 | g             |
+| cena             | proteins         | Piselli                       |        150 | g             |
+| cena             | proteins         | Tonno                         |        150 | g             |
+| cena             | proteins         | Pesce spada                   |        150 | g             |
+| cena             | proteins         | Salmone                       |        150 | g             |
+| cena             | proteins         | Sgombro                       |        150 | g             |
+| cena             | proteins         | Alici                         |        150 | g             |
+| cena             | proteins         | Vongole                       |        150 | g             |
+| cena             | proteins         | Merluzzo                      |        150 | g             |
+| cena             | proteins         | Cernia                        |        150 | g             |
+| cena             | proteins         | Persico                       |        150 | g             |
+| cena             | proteins         | Nasello                       |        150 | g             |
+| cena             | proteins         | Orata                         |        150 | g             |
+| cena             | proteins         | Rombo                         |        150 | g             |
+| cena             | proteins         | Sogliola                      |        150 | g             |
+| cena             | proteins         | Spigola                       |        150 | g             |
+| cena             | proteins         | Seppie                        |        150 | g             |
+| cena             | proteins         | Gamberi                       |        150 | g             |
+| cena             | proteins         | Gamberetti                    |        150 | g             |
+| cena             | proteins         | Calamari                      |        150 | g             |
+| cena             | proteins         | Polpo                         |        150 | g             |
+| cena             | proteins         | Stracchino                    |        100 | g             |
+| cena             | proteins         | Fiocchi di latte              |        100 | g             |
+| cena             | proteins         | Robiola                       |        100 | g             |
+| cena             | proteins         | Formaggio spalmabile          |        100 | g             |
+| cena             | proteins         | Ricotta                       |        100 | g             |
+| cena             | proteins         | Albume                        |         60 | g             |
+| cena             | proteins         | Uova                          |          2 | None          |
+| cena             | proteins         | Hamburger di pollo o tacchino |        150 | g             |
+| cena             | proteins         | Pollo                         |        150 | g             |
+| cena             | proteins         | Petto di pollo                |        150 | g             |
+| cena             | proteins         | Tacchino                      |        150 | g             |
+| cena             | proteins         | Coniglio                      |        150 | g             |
+| cena             | fibers           | Pomodori                      |        200 | g             |
+| cena             | fibers           | Finocchi                      |        200 | g             |
+| cena             | fibers           | Pomodorini                    |        200 | g             |
+| cena             | fibers           | Zucchine                      |        200 | g             |
+| cena             | fibers           | Broccoli                      |        200 | g             |
+| cena             | fibers           | Rape                          |        200 | g             |
+| cena             | fibers           | Cicoria                       |        200 | g             |
+| cena             | fibers           | Cavolo nero                   |        200 | g             |
+| cena             | fibers           | Cavolfiore                    |        200 | g             |
+| cena             | fibers           | Peperoni                      |        200 | g             |
+| cena             | fibers           | Melanzane                     |        200 | g             |
+| cena             | fibers           | Carote                        |        200 | g             |
+| cena             | fibers           | Asparagi                      |        200 | g             |
+| cena             | fibers           | Carciofi                      |        200 | g             |
+| cena             | fibers           | Zucca                         |        200 | g             |
+| cena             | fibers           | Spinaci                       |        200 | g             |
+| cena             | fibers           | Verza                         |        200 | g             |
+| cena             | fibers           | Fagiolini                     |        200 | g             |
+| cena             | fibers           | Radicchio                     |        200 | g             |
+| cena             | fibers           | Ravanelli                     |        200 | g             |
+| cena             | fibers           | Indivia                       |        200 | g             |
+| cena             | fibers           | Cime di rapa                  |        200 | g             |
+| cena             | fibers           | Cetrioli                      |        200 | g             |
+| cena             | fats             | Olio extra vergine di oliva   |         10 | g             |
