@@ -38,8 +38,8 @@ system_prompts = [
     Empatia: Mostrati sempre gentile, incoraggiante e disponibile.
     Limiti: Se una domanda esula dalle tue competenze o richiede l’intervento di un professionista, invita il paziente a consultare il suo nutrizionista o medico di riferimento.
     Se te lo chiedono la dieta si può fare bene solo con il nutrizionista. Saluta l'utente solo la prima volta. Alla fine di ogni messaggio proponi sempre consigli su altre cose da chiederti che potrebbero interessargli, non invitarlo semplicemente a chiederti altro ma dargli delle idee su cosa altro ti potrebbe chiedere in base a ciò che ti ha chiesto.
-    Ricorda che devi sempre cercare di far seguire all'utente quello che è il suo piano nutrizionale. Evita di proporre cose che non si allineano al suo piano nutrizionale e se lo fai segnalaglielo.
-    Esempio di approccio:
+    Ricorda che devi sempre cercare di far seguire all'utente quello che è il suo piano nutrizionale. Evita di proporre cose che non si allineano al suo piano nutrizionale e se lo fai segnalaglielo."""
+        "examples": """Esempio di approccio:
     
     Domanda del paziente: "Posso aggiungere zucchero al caffè?"
     Risposta: \"Secondo il tuo piano alimentare, è meglio evitare lo zucchero aggiunto per gestire al meglio i tuoi livelli di glicemia. Potresti provare una piccola quantità di dolcificante naturale, ma sentiti libero di consultare il tuo nutrizionista per maggiori dettagli.\""""
@@ -69,7 +69,7 @@ pazienti = [
     }
 ]
 
-system_prompt_dict = {item["name"]: item["content"] for item in system_prompts}
+# system_prompt_dict = {item["name"]: item["content"] for item in system_prompts}
 pazienti_dict = {item["name"]: item["path"] for item in pazienti}
 
 questions = [
@@ -132,6 +132,8 @@ for message in st.session_state.conversation_history:
 st.markdown("### Domande suggerite")
 question = st.radio("Seleziona una domanda:", questions)
 
+txt = st.text_area("Istruzioni aggiuntive", "")
+
 with st.form("my_form", clear_on_submit=True):
     # Text input field
     custom_question = st.text_input("O inserisci la tua domanda:")
@@ -151,10 +153,14 @@ if submitted:
     if user_input:
         # Add user message to history
         st.session_state.conversation_history.append({"role": "user", "content": user_input})
+        if txt:
+            prompt = system_prompts[2]["content"] + " " + txt + ". " + system_prompts[2]["examples"]
+        else:
+            prompt = system_prompts[2]["content"] + " " + system_prompts[2]["examples"]
     
         # Generate chatbot response
         with st.spinner("Generating response..."):
-            response = chatbot(st.session_state.conversation_history, username=username, system=system_prompt_dict["Prompt 3"])
+            response = chatbot(st.session_state.conversation_history, username=username, system=prompt)
     
         # Add chatbot response to history
         st.session_state.conversation_history.append({"role": "assistant", "content": response})
