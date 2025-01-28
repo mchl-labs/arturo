@@ -66,6 +66,10 @@ pazienti = [
     {
         "name": "L. Trivisonno",
         "path": "data/letiziatrivisonno.txt"
+    },
+    {
+        "name": "R. Formusa",
+        "path": "data/rosaformusa.txt"
     }
 ]
 
